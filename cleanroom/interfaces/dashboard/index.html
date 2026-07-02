@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CleanRoom — Ransomware Resilience</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0c0f14; --panel: #151a22; --panel2: #1b222c; --line: #263040;
+    --text: #e7edf3; --muted: #8a97a8; --green: #24d17e; --yellow: #ffcf5c;
+    --red: #ff5d6c; --accent: #37c6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header {
+    padding: 20px 28px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--green), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #05221a;
+  }
+  h1 { font-size: 18px; margin: 0; letter-spacing: .3px; }
+  .sub { color: var(--muted); font-size: 12.5px; }
+  main { padding: 22px 28px; max-width: 1180px; margin: 0 auto; }
+  .banner {
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;
+    border: 1px solid var(--line); background: var(--panel);
+  }
+  .banner.alert { border-color: #55232b; background: #1c1418; }
+  .banner.ok { border-color: #1f4a37; background: #101d18; }
+  .banner h2 { margin: 0 0 6px; font-size: 16px; }
+  .banner p { margin: 4px 0; color: var(--text); font-size: 13.5px; }
+  .pill {
+    display: inline-block; padding: 2px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; margin-left: 6px;
+  }
+  .pill.clean { background: #16351f; color: var(--green); }
+  .pill.suspicious { background: #3a3113; color: var(--yellow); }
+  .pill.compromised { background: #3a161d; color: var(--red); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px;
+  }
+  .card .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .6px; }
+  .card .v { font-size: 26px; font-weight: 700; margin-top: 6px; }
+  .card .v.green { color: var(--green); } .card .v.red { color: var(--red); }
+  .panel {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px; margin-bottom: 20px;
+  }
+  .panel h3 { margin: 0 0 12px; font-size: 14px; color: var(--text); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .5px; }
+  tr.compromised td { background: rgba(255,93,108,.06); }
+  tr.suspicious td { background: rgba(255,207,92,.05); }
+  tr.lastclean td { box-shadow: inset 3px 0 0 var(--green); }
+  tr.infection td { box-shadow: inset 3px 0 0 var(--red); }
+  .verdict { font-weight: 700; }
+  .verdict.clean { color: var(--green); } .verdict.suspicious { color: var(--yellow); } .verdict.compromised { color: var(--red); }
+  .tag { color: var(--muted); font-size: 11px; }
+  .bar { height: 7px; border-radius: 4px; background: var(--panel2); overflow: hidden; width: 90px; display:inline-block; vertical-align: middle;}
+  .bar > i { display: block; height: 100%; }
+  .evidence { color: var(--muted); font-size: 12px; }
+  .foot { color: var(--muted); font-size: 12px; text-align: center; padding: 18px; }
+  .loading, .error { padding: 40px; text-align: center; color: var(--muted); }
+  .error { color: var(--red); }
+  code { background: var(--panel2); padding: 1px 6px; border-radius: 5px; color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">CR</div>
+  <div>
+    <h1>CleanRoom <span class="sub">· ransomware resilience on immutable snapshots</span></h1>
+    <div class="sub" id="meta">loading…</div>
+  </div>
+</header>
+<main>
+  <div id="content"><div class="loading">Analyzing snapshot timeline…</div></div>
+  <div class="foot">CleanRoom performs storage forensics on backup snapshots — it never touches production. Built around Rubrik's RIVET values.</div>
+</main>
+
+<script>
+const COLORS = { clean:"#24d17e", suspicious:"#ffcf5c", compromised:"#ff5d6c", accent:"#37c6ff", muted:"#8a97a8" };
+const fmtBytes = b => b > 1048576 ? (b/1048576).toFixed(1)+" MB" : (b/1024).toFixed(0)+" KB";
+
+async function load() {
+  try {
+    const [aRes, mRes] = await Promise.all([fetch("/api/analysis"), fetch("/api/meta")]);
+    if (!aRes.ok) throw new Error((await aRes.json()).detail || "analysis failed");
+    const data = await aRes.json();
+    const meta = mRes.ok ? await mRes.json() : {};
+    document.getElementById("meta").textContent =
+      `${meta.snapshot_count ?? data.timeline.length} snapshots · store: ${meta.data_root ?? ""} · v${meta.version ?? ""}`;
+    render(data);
+  } catch (e) {
+    document.getElementById("content").innerHTML =
+      `<div class="error">Could not load analysis: ${e.message}<br><br>Generate a demo timeline first: <code>cleanroom demo</code></div>`;
+  }
+}
+
+function render(data) {
+  const rp = data.recovery_plan, br = rp.blast_radius, tl = data.timeline;
+  const el = document.getElementById("content");
+  el.innerHTML = "";
+
+  // Banner
+  const banner = document.createElement("div");
+  banner.className = "banner " + (rp.incident_detected ? "alert" : "ok");
+  if (rp.incident_detected) {
+    banner.innerHTML = `
+      <h2 style="color:${COLORS.compromised}">⚠ Ransomware detected in your backups</h2>
+      <p><b>Recover from snapshot <span style="color:${COLORS.clean}">${rp.last_clean_snapshot_id}</span></b>
+         — the last verified-clean point. Attack first appears in
+         <span style="color:${COLORS.compromised}">${rp.first_compromised_snapshot_id}</span>.</p>
+      <p class="tag">${rp.recommendation}</p>
+      <p>Detection confidence <b>${(rp.confidence*100).toFixed(0)}%</b></p>`;
+  } else {
+    banner.innerHTML = `<h2 style="color:${COLORS.clean}">✓ No ransomware detected</h2><p>${rp.summary}</p>`;
+  }
+  el.appendChild(banner);
+
+  // Cards
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  const cards = [
+    ["Last clean point", rp.last_clean_snapshot_id ?? "—", "green"],
+    ["Files affected", br.total_files_affected, rp.incident_detected ? "red" : ""],
+    ["Data affected", fmtBytes(br.bytes_affected), rp.incident_detected ? "red" : ""],
+    ["Snapshots impacted", br.snapshots_impacted, rp.incident_detected ? "red" : ""],
+  ];
+  cards.forEach(([k,v,c]) => {
+    const d = document.createElement("div"); d.className="card";
+    d.innerHTML = `<div class="k">${k}</div><div class="v ${c||''}">${v}</div>`;
+    grid.appendChild(d);
+  });
+  el.appendChild(grid);
+
+  // Chart panel
+  const chartPanel = document.createElement("div");
+  chartPanel.className = "panel";
+  chartPanel.innerHTML = `<h3>Anomaly score across the backup timeline</h3><canvas id="tlchart" height="90"></canvas>`;
+  el.appendChild(chartPanel);
+
+  // Table panel
+  const tablePanel = document.createElement("div");
+  tablePanel.className = "panel";
+  tablePanel.innerHTML = `<h3>Snapshot forensics</h3>`;
+  const table = document.createElement("table");
+  table.innerHTML = `<thead><tr>
+      <th>Snapshot</th><th>Files</th><th>+ / ~ / −</th><th>Anomaly</th>
+      <th>Verdict</th><th>Strongest signal</th></tr></thead>`;
+  const tbody = document.createElement("tbody");
+  tl.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.className = r.verdict;
+    if (r.snapshot_id === rp.last_clean_snapshot_id && rp.incident_detected) tr.classList.add("lastclean");
+    if (r.snapshot_id === rp.first_compromised_snapshot_id) tr.classList.add("infection");
+    const top = r.signals && r.signals[0] && r.signals[0].score > 0.01 ? r.signals[0] : null;
+    let tag = "";
+    if (r.snapshot_id === rp.last_clean_snapshot_id && rp.incident_detected) tag = ` <span class="tag" style="color:${COLORS.clean}">◀ last clean</span>`;
+    if (r.snapshot_id === rp.first_compromised_snapshot_id) tag = ` <span class="tag" style="color:${COLORS.compromised}">◀ infection</span>`;
+    const col = r.anomaly_score>=0.5?COLORS.compromised:(r.anomaly_score>=0.3?COLORS.suspicious:COLORS.clean);
+    tr.innerHTML = `
+      <td><b>${r.snapshot_id}</b>${tag}<div class="tag">${(r.taken_at||"").slice(0,10)}</div></td>
+      <td>${r.file_count}</td>
+      <td><span style="color:${COLORS.clean}">${r.added}</span> / <span style="color:${COLORS.suspicious}">${r.modified+r.renamed}</span> / <span style="color:${COLORS.compromised}">${r.deleted}</span></td>
+      <td><span class="bar"><i style="width:${(r.anomaly_score*100).toFixed(0)}%;background:${col}"></i></span> ${r.anomaly_score.toFixed(2)}</td>
+      <td><span class="verdict ${r.verdict}">${r.verdict.toUpperCase()}</span></td>
+      <td>${top ? `<b>${top.name}</b> <span class="evidence">${top.evidence}</span>` : '<span class="evidence">—</span>'}</td>`;
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  tablePanel.appendChild(table);
+  el.appendChild(tablePanel);
+
+  drawChart(tl, rp);
+}
+
+function drawChart(tl, rp) {
+  const ctx = document.getElementById("tlchart");
+  const labels = tl.map(r => r.snapshot_id);
+  const scores = tl.map(r => r.anomaly_score);
+  const bg = tl.map(r => r.verdict==="compromised"?COLORS.compromised:(r.verdict==="suspicious"?COLORS.suspicious:COLORS.clean));
+  new Chart(ctx, {
+    type: "bar",
+    data: { labels, datasets: [{ label:"Anomaly score", data:scores, backgroundColor:bg, borderRadius:5, maxBarThickness:46 }]},
+    options: {
+      plugins: {
+        legend: { display:false },
+        tooltip: { callbacks: { afterlabel: c => {
+          const r = tl[c.dataIndex];
+          return (r.signals||[]).filter(s=>s.score>0.01).slice(0,4).map(s=>`${s.name}: ${s.score.toFixed(2)}`);
+        }}}
+      },
+      scales: {
+        y: { min:0, max:1, grid:{color:"#1e2733"}, ticks:{color:COLORS.muted},
+             title:{display:true,text:"anomaly score",color:COLORS.muted} },
+        x: { grid:{display:false}, ticks:{color:COLORS.muted} }
+      }
+    }
+  });
+}
+load();
+</script>
+</body>
+</html>

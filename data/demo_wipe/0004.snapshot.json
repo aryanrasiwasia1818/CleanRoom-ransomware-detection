@@ -1,0 +1,505 @@
+{
+  "snapshot_id": "0004",
+  "taken_at": "2026-01-04T03:00:00+00:00",
+  "source": "/sessions/adoring-jolly-shannon/tmp/cleanroom_sim_g8ahlubl",
+  "label": "clean",
+  "files": [
+    {
+      "path": "DO_NOT_DELETE_canary.docx",
+      "size": 2143,
+      "content_hash": "5bf6b2c93dbf95cbaf7f699fd4cf3131b7d6cdf5d9d443b5ecc76ac1083e1151",
+      "entropy": 4.0816,
+      "modified_ns": 1783023185428000136
+    },
+    {
+      "path": "_canary_finance.xlsx",
+      "size": 2116,
+      "content_hash": "0aeba5e8d8ab54ae969aab797df0de7450143572abf02c6772c086af511358ef",
+      "entropy": 4.0911,
+      "modified_ns": 1783023185428000136
+    },
+    {
+      "path": "archives/backup_1.zip",
+      "size": 12288,
+      "content_hash": "865ac0dd240e8e1eea5786cdeddd08e60abcfd6c40e4673025326b16ef0fe9a6",
+      "entropy": 7.9555,
+      "modified_ns": 1783023185426000136
+    },
+    {
+      "path": "archives/backup_2.zip",
+      "size": 12288,
+      "content_hash": "cb6453bc88c85606c646bee4c120597165ebfce44b3a4ec27d127348f6092e88",
+      "entropy": 7.951,
+      "modified_ns": 1783023185426000136
+    },
+    {
+      "path": "archives/backup_3.zip",
+      "size": 12288,
+      "content_hash": "5f05982bca9bbb613b3547646c911934a3cc5ab6b60683a3fb25da0e5de50abc",
+      "entropy": 7.9572,
+      "modified_ns": 1783023185427000136
+    },
+    {
+      "path": "archives/backup_4.zip",
+      "size": 12288,
+      "content_hash": "f0de2fa1a6bc5f93eb3382df4eca31a1be7401e280fef712af361012c8d2d0ad",
+      "entropy": 7.954,
+      "modified_ns": 1783023185427000136
+    },
+    {
+      "path": "archives/backup_5.zip",
+      "size": 13312,
+      "content_hash": "4b1feb8913d292a4cc7b7d077b3a308b0e28b26872240b754fa9f13ffd4be80a",
+      "entropy": 7.915,
+      "modified_ns": 1783023185428000136
+    },
+    {
+      "path": "archives/backup_6.zip",
+      "size": 14336,
+      "content_hash": "5cc0449d3fc7d56561fdc544204445add9e6b35e69d1b1f5e7be739cfd67de72",
+      "entropy": 7.9433,
+      "modified_ns": 1783023185428000136
+    },
+    {
+      "path": "engineering/config_1.json",
+      "size": 4145,
+      "content_hash": "ce70bacf0d36c3aad0bd0beb78d510753117bb0e7e723c627a9ada8a0a12e728",
+      "entropy": 4.0089,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "engineering/config_2.json",
+      "size": 2099,
+      "content_hash": "fd1d9fb58d4bf33d43fdfa3f5af3ccf622a1858ac8bf050b19676abe4964f487",
+      "entropy": 4.147,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "engineering/config_3.json",
+      "size": 3120,
+      "content_hash": "fe542c1360d02e616a925c8a9ac58d372dca854dc4d878ab4cd1fe41a0d91aa2",
+      "entropy": 4.1358,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "engineering/config_4.json",
+      "size": 4241,
+      "content_hash": "22fa81c20495dee0dbcf772c54bfa21ed06204a2bbff4234a87d370733e2c287",
+      "entropy": 4.0433,
+      "modified_ns": 1783023185463000137
+    },
+    {
+      "path": "engineering/config_5.json",
+      "size": 3095,
+      "content_hash": "f2fa17a6ec5ce3834bfad0d95ecbbac2ba9ef4128f2c453cebf5d7711b70fde0",
+      "entropy": 4.0996,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "engineering/config_6.json",
+      "size": 4125,
+      "content_hash": "10b350b26ab1827e8b0c360c005d6a3162d1c5684b40942fb81b912cb3b7b717",
+      "entropy": 3.8247,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "engineering/handler_1.py",
+      "size": 8244,
+      "content_hash": "ef7f90f245e5ce0957928a36d251c421a816c2fc07124f2f71745c0c41eb3379",
+      "entropy": 4.2644,
+      "modified_ns": 1783023185420000136
+    },
+    {
+      "path": "engineering/handler_2.py",
+      "size": 8204,
+      "content_hash": "99a294675d0af4f13dc65b6b779542c133ea84d21a0016e652adea122cfb5383",
+      "entropy": 3.9877,
+      "modified_ns": 1783023185420000136
+    },
+    {
+      "path": "engineering/handler_3.py",
+      "size": 7554,
+      "content_hash": "88c475a34b5e28e1d9a34f54cb27b95c0005c502b9e3feeb139d26970868dcf9",
+      "entropy": 4.4751,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "engineering/handler_4.py",
+      "size": 7178,
+      "content_hash": "e0b94eeade746d701cbde332bb4b51d7bfa1f276fff7d38146fb7e299d9e2dea",
+      "entropy": 4.4573,
+      "modified_ns": 1783023185421000136
+    },
+    {
+      "path": "engineering/handler_5.py",
+      "size": 7176,
+      "content_hash": "d6ab7e41cb1c7b6e617e62e79c0335b33efdb950ce3a7cdc7e470c33d3a211a2",
+      "entropy": 4.4536,
+      "modified_ns": 1783023185421000136
+    },
+    {
+      "path": "engineering/handler_6.py",
+      "size": 6176,
+      "content_hash": "6a1fd35ab79d45b02fdc90afde488423e23b25e2d97215778213301e3776dfc0",
+      "entropy": 4.4694,
+      "modified_ns": 1783023185421000136
+    },
+    {
+      "path": "engineering/service_1.py",
+      "size": 9231,
+      "content_hash": "41f69b308d9066c919adf8c3daf9219c36562b9cdf42064ffd6cc2de8fc7cbd5",
+      "entropy": 4.4377,
+      "modified_ns": 1783023185418000136
+    },
+    {
+      "path": "engineering/service_2.py",
+      "size": 8209,
+      "content_hash": "7c972fde8123da406ea566796bc4f7a353afc17be6957f3f670fc270fb1595c3",
+      "entropy": 4.2574,
+      "modified_ns": 1783023185418000136
+    },
+    {
+      "path": "engineering/service_3.py",
+      "size": 9254,
+      "content_hash": "11575707aafa9f41d30e7828d9cf4f3556d83cec640a1194bfbd5845624fa322",
+      "entropy": 4.4578,
+      "modified_ns": 1783023185419000136
+    },
+    {
+      "path": "engineering/service_4.py",
+      "size": 9275,
+      "content_hash": "a9b125716b2c9b339b03ddbef63063d347e510e547dd6de57d7ff432554bdfda",
+      "entropy": 4.4605,
+      "modified_ns": 1783023185419000136
+    },
+    {
+      "path": "engineering/service_5.py",
+      "size": 9219,
+      "content_hash": "9cccb11e3a905c46510eed972da013ad6364f5d27e55b1d9149537919dd616d5",
+      "entropy": 4.4662,
+      "modified_ns": 1783023185419000136
+    },
+    {
+      "path": "engineering/service_6.py",
+      "size": 8554,
+      "content_hash": "f29f34075910a5ea7b968d8038c09c5a55747af0ec7ce3bde8065dc2c49a7bda",
+      "entropy": 4.3201,
+      "modified_ns": 1783023185463000137
+    },
+    {
+      "path": "finance/budget_1.txt",
+      "size": 5150,
+      "content_hash": "24bf390d0c3021d92462e6c5c3edf040be89cd8a27810c12cf6d8aa19a076a22",
+      "entropy": 4.1316,
+      "modified_ns": 1783023185415000136
+    },
+    {
+      "path": "finance/budget_2.txt",
+      "size": 6175,
+      "content_hash": "b17d2f42d5b7bb2ae051c83b028f4c801d23f5600adab809a1e7392ccc6341ea",
+      "entropy": 4.1074,
+      "modified_ns": 1783023185415000136
+    },
+    {
+      "path": "finance/budget_3.txt",
+      "size": 7243,
+      "content_hash": "ee1782ab122312676e288e21b108c8acbea1fa6c5f7a4a7288df919b9530fc1f",
+      "entropy": 4.1309,
+      "modified_ns": 1783023185415000136
+    },
+    {
+      "path": "finance/budget_4.txt",
+      "size": 6181,
+      "content_hash": "c31a3333017db9545f75650c0d710f447c0f86f8399d5d8cb6f6c161a90badbc",
+      "entropy": 4.131,
+      "modified_ns": 1783023185415000136
+    },
+    {
+      "path": "finance/budget_5.txt",
+      "size": 7191,
+      "content_hash": "8cec51604fc9f79a2d1a0bfef390bc09031ee1e1d9563d54fad94b94a7499cb1",
+      "entropy": 4.1305,
+      "modified_ns": 1783023185415000136
+    },
+    {
+      "path": "finance/budget_6.txt",
+      "size": 7521,
+      "content_hash": "bd210a2e3ada7a29545985bd479d81ab3305f244f9a707bd32675603740be8e9",
+      "entropy": 4.1203,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "finance/ledger_1.csv",
+      "size": 9938,
+      "content_hash": "db9a9decc5b751f545c50016a728e6cb954e7e7fcb565c00164945a21312a3d6",
+      "entropy": 4.1164,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "finance/ledger_2.csv",
+      "size": 8519,
+      "content_hash": "4125b2435977541ecebd759b78329ca019e5df17398909d9d3afea1d360954d3",
+      "entropy": 4.1101,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "finance/ledger_3.csv",
+      "size": 8288,
+      "content_hash": "2a00ce16e55923fcfe5dd4cc78da9dcf6822d6171ab0e97de3a13dcc2f86b688",
+      "entropy": 4.0661,
+      "modified_ns": 1783023185413000136
+    },
+    {
+      "path": "finance/ledger_4.csv",
+      "size": 9530,
+      "content_hash": "5a16d2d0e233c78916ce253882bb17c9913e58f6e20a38233501d3c157828909",
+      "entropy": 4.1146,
+      "modified_ns": 1783023185446000136
+    },
+    {
+      "path": "finance/ledger_5.csv",
+      "size": 10435,
+      "content_hash": "8fa265756e31cad4648a7616ec9bb0a3b887cf4e52b98cbbe34402b2f682792a",
+      "entropy": 4.1295,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "finance/ledger_6.csv",
+      "size": 9227,
+      "content_hash": "16243656cb76e9b41d03507a21027504f3cef0740b40091862d1109a6b37b938",
+      "entropy": 4.1161,
+      "modified_ns": 1783023185414000136
+    },
+    {
+      "path": "finance/q1_invoice.txt",
+      "size": 7265,
+      "content_hash": "20da37b94e13280cb4dfeeeb8b8794311d518915caae43b61beabc85df96c67e",
+      "entropy": 4.1051,
+      "modified_ns": 1783023185411000136
+    },
+    {
+      "path": "finance/q2_invoice.txt",
+      "size": 6576,
+      "content_hash": "7dc18f38f940739089f14d94981ed3eba27a35770f84c2831f2d1781b3dfc06d",
+      "entropy": 4.1164,
+      "modified_ns": 1783023185481000137
+    },
+    {
+      "path": "finance/q3_invoice.txt",
+      "size": 8373,
+      "content_hash": "cd6b908212ec3847bf183b270a5f4a8f338bc52ae5d336d371c9b4e2f997c70b",
+      "entropy": 4.0655,
+      "modified_ns": 1783023185446000136
+    },
+    {
+      "path": "finance/q4_invoice.txt",
+      "size": 7653,
+      "content_hash": "351872e361e2786bb0f41e629e4eb85f26fca10ed5b4041f633741de44a4bd30",
+      "entropy": 4.1128,
+      "modified_ns": 1783023185463000137
+    },
+    {
+      "path": "finance/q5_invoice.txt",
+      "size": 8207,
+      "content_hash": "4da473964cf1f44c3dfb50884e7e36da93c2d3aeea01fbb667d6d54c9979337b",
+      "entropy": 3.9567,
+      "modified_ns": 1783023185412000136
+    },
+    {
+      "path": "finance/q6_invoice.txt",
+      "size": 8288,
+      "content_hash": "a7d4a209140cbcfbeb2432008760fc5d7e0b81327691da5c46268428322d55c6",
+      "entropy": 4.116,
+      "modified_ns": 1783023185413000136
+    },
+    {
+      "path": "hr/onboarding_1.txt",
+      "size": 3167,
+      "content_hash": "994de52b9bce90d7bf9d1cd712cddaf5c4672037c212caf87dde17d5767b036d",
+      "entropy": 4.1249,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/onboarding_2.txt",
+      "size": 5194,
+      "content_hash": "8481944561c24535adb449be19f5941dbe3e02cd55f32dcf98b7aaeb90c29a18",
+      "entropy": 4.1342,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/onboarding_3.txt",
+      "size": 4155,
+      "content_hash": "313577c948b09f47a381955276aca997c1c64eca2e10f88da7fa803723022dfe",
+      "entropy": 3.9647,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/onboarding_4.txt",
+      "size": 3083,
+      "content_hash": "4dcf26e9243c3b60e0064085e8a0d84ecbb91dd4fe416e94ebd553e046eae18e",
+      "entropy": 4.1306,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/onboarding_5.txt",
+      "size": 4144,
+      "content_hash": "af44c260c167f12c8278627379c43efde25442099f1474cabc179d37e5acb8ed",
+      "entropy": 3.9271,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/onboarding_6.txt",
+      "size": 3517,
+      "content_hash": "23b85b76db38e708c4dc55bf16e95bb2d545423d069a19598505e747fd67d873",
+      "entropy": 4.1276,
+      "modified_ns": 1783023185463000137
+    },
+    {
+      "path": "hr/policy_1.md",
+      "size": 6211,
+      "content_hash": "6b2b3354201c2b9b36aec00d4b849883d732334f017ab4ff50325e3489d6887b",
+      "entropy": 4.1289,
+      "modified_ns": 1783023185416000136
+    },
+    {
+      "path": "hr/policy_2.md",
+      "size": 5166,
+      "content_hash": "e281dbc1f343a12ce257799ecb1ca3d8eef97942a5ae21651318a648d400e576",
+      "entropy": 4.1209,
+      "modified_ns": 1783023185416000136
+    },
+    {
+      "path": "hr/policy_3.md",
+      "size": 6185,
+      "content_hash": "b38a88215ae6a81507838a6bca7680303362275f6d38390ce820f7a7b894716a",
+      "entropy": 4.1129,
+      "modified_ns": 1783023185416000136
+    },
+    {
+      "path": "hr/policy_5.md",
+      "size": 6190,
+      "content_hash": "92b217ffbed708fca546f9c78e31a2392f10372ef2511105160d52ed4bc3381d",
+      "entropy": 4.114,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "hr/policy_6.md",
+      "size": 4104,
+      "content_hash": "da45caf0c63e795811c0dced444ac43cfceec701732de46f933babb62807c4b8",
+      "entropy": 3.4507,
+      "modified_ns": 1783023185417000136
+    },
+    {
+      "path": "media/photo_1.jpg",
+      "size": 12288,
+      "content_hash": "e0243de03e64746b1f075905377598292d6caaadd88a999081b48d2707889906",
+      "entropy": 7.9492,
+      "modified_ns": 1783023185424000136
+    },
+    {
+      "path": "media/photo_2.jpg",
+      "size": 10240,
+      "content_hash": "50d90c935f56f672e2048f8214927e8133347b95d60c8849badaf0798659a337",
+      "entropy": 7.9421,
+      "modified_ns": 1783023185424000136
+    },
+    {
+      "path": "media/photo_3.jpg",
+      "size": 11264,
+      "content_hash": "1bf8a8c558ba95680e8142dea2b331981d3627171aa14125366e8cfce29a8a91",
+      "entropy": 7.9484,
+      "modified_ns": 1783023185424000136
+    },
+    {
+      "path": "media/photo_4.jpg",
+      "size": 11264,
+      "content_hash": "ec070d752f1c8f3d55f6a4392daeb8ab4a9b15c6cd7508df25e0612ec4ce0cb8",
+      "entropy": 7.9426,
+      "modified_ns": 1783023185425000136
+    },
+    {
+      "path": "media/photo_5.jpg",
+      "size": 12288,
+      "content_hash": "1c1de06ff11d370ff53bba612cae889580fee2f9258665b4b898dae94e1e1cd8",
+      "entropy": 7.9549,
+      "modified_ns": 1783023185425000136
+    },
+    {
+      "path": "media/photo_6.jpg",
+      "size": 12288,
+      "content_hash": "455d29f4cf25f82988d1fa1b71a7c509d8e70d45150b5f3293d64598f4a87adf",
+      "entropy": 7.9545,
+      "modified_ns": 1783023185425000136
+    },
+    {
+      "path": "reports/note_7020.md",
+      "size": 4128,
+      "content_hash": "ac60f3e868b752cab9a5abb12dabf957c2230eb93c72b7f5101d6d9c8328e74d",
+      "entropy": 3.7784,
+      "modified_ns": 1783023185446000136
+    },
+    {
+      "path": "reports/note_7418.md",
+      "size": 3167,
+      "content_hash": "1c77849233a07b85fed3fd2e4fbd75821b4915d59b5dcf3fc6804e09f26bdbc8",
+      "entropy": 4.1316,
+      "modified_ns": 1783023185482000137
+    },
+    {
+      "path": "reports/note_9399.md",
+      "size": 2105,
+      "content_hash": "fba52038f65d8136c41f9f7e6f2b61c79aa6a452d748c541157be47bf07d9713",
+      "entropy": 4.1046,
+      "modified_ns": 1783023185464000137
+    },
+    {
+      "path": "reports/summary_1.md",
+      "size": 5141,
+      "content_hash": "94fa9314723dc622d5eb7b7c4b75ce7d9f8f2315700f874d4ff906c8ef1a2693",
+      "entropy": 4.1062,
+      "modified_ns": 1783023185422000136
+    },
+    {
+      "path": "reports/summary_2.md",
+      "size": 6163,
+      "content_hash": "0c28fa1efee2e2387a563a4747e5fe34e3f0c907d3c80c37bc3adf14cb28c0fa",
+      "entropy": 4.1151,
+      "modified_ns": 1783023185423000136
+    },
+    {
+      "path": "reports/summary_3.md",
+      "size": 5176,
+      "content_hash": "0b470567cd07ac40640bc0acd3ce441b12dcdf41e6166ce0729d562db821615f",
+      "entropy": 4.0801,
+      "modified_ns": 1783023185423000136
+    },
+    {
+      "path": "reports/summary_4.md",
+      "size": 6158,
+      "content_hash": "29b093848ef3cee754baa0c3fa0e554d171d9d6c03347f120e805a44b0aab3bf",
+      "entropy": 4.1224,
+      "modified_ns": 1783023185423000136
+    },
+    {
+      "path": "reports/summary_5.md",
+      "size": 5158,
+      "content_hash": "1b590b11cf65b8e1c848a5040219ef7ba6637750fcd17c086fe79c9d02f85f5b",
+      "entropy": 4.1446,
+      "modified_ns": 1783023185423000136
+    },
+    {
+      "path": "reports/summary_6.md",
+      "size": 6177,
+      "content_hash": "044ad194fb9dc1afc8c7bccbd2873984c97d9b2fafd95ad5986e08358a74cd36",
+      "entropy": 4.1064,
+      "modified_ns": 1783023185423000136
+    },
+    {
+      "path": "zzz_canary_readme.txt",
+      "size": 2112,
+      "content_hash": "a6c97b9171fb6861544fa4a3c6a2af7c5e7f08f90d67dbf39b5ff3276d0be86c",
+      "entropy": 4.1251,
+      "modified_ns": 1783023185428000136
+    }
+  ]
+}
